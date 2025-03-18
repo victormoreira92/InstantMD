@@ -11,6 +11,11 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main class="container-fluid">
+      <div class="row flex-nowrap">
+        <%= render 'shared/sidebar' %>
+        <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

@@ -1,0 +1,46 @@
+<div class="container pt-3 bg-light">
+  <div class="row">
+    <div class="col-10">
+      <div class="card w-100">
+        <div class="card-body">
+          <h5 class="card-title">Gerador de Usuários</h5>
+          <p class="card-text">Gerador online dos documentos de uma pessoa, geramos NOME, RG, CPF, CEP, Endereço e Telefone (consultados nos correios), tudo que foi gerado é válido. Basta escolher o sexo e clicar no botão "Gerar Pessoa".</p>
+          <%= form_with url: gerador_pessoa_generator_data_url, scope: :pessoa do  |form| %>
+            <ol>
+              <li>
+                <hr class="border border-info border-2 opacity-50 w-100">
+                Qual o genero do usuario? 
+                <div class="p-2">
+                  <%= form.radio_button :genero, 'masculino' %>
+                  <%= form.label :genero, "Masculino" %>
+                </div>                
+                <div class="p-2">
+                  <%= form.radio_button :genero, 'feminino'%>
+                  <%= form.label :genero, "Feminino" %>
+                </div>                
+                <div class="p-2">
+                  <%= form.radio_button :genero, 'aleatorio' %>
+                  <%= form.label :genero, "Aleatório" %>
+                </div>                
+              </li>
+              <hr class="border border-info border-2 opacity-50 w-100">
+              <li>
+                Qual idade da pessoa? (opcional)
+                <%= form.select :idade, idade_pessoa, { prompt: 'Escolha uma idade' }, { class: 'form-control w-50' } %>              
+              </li>
+              <hr class="border border-info border-2 opacity-50 w-100">
+              <li>
+                Quantidade de pessoas? (opcional)
+                <%= form.select :quantidade_pessoas, quantidade_pessoas, { }, { class: 'form-control w-25' } %>              
+              </li>
+            <ol>
+            <div class="d-flex justify-content-center">
+              <%= form.submit 'Criar Pessoa', class:'btn btn-info w-auto' %>
+            </div>
+          <% end %>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
